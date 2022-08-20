@@ -2,20 +2,27 @@ const { application } = require('express')
 const express = require('express')
 const router = express.Router()
 const Item = require('../models/items')
-const categories = ['produce', 'meat', 'pantryOrFrozen', 'non-food']
+const categories = ['produce', 'meat', 'pantryOrFrozen', 'nonfood']
+const categoriesTitles = ['Produce', 'Meat', 'Pantry/Frozen', 'Non-Food']
+
 // INDEX ROUTE =======================================================
 router.get('/', (req, res) => {
     Item.find({}, (err, allItems) => {
-        console.log(allItems)
         res.render('index.ejs', {
             items: allItems,
-            categories: categories  
+            categories: categories,
+            titles: categoriesTitles  
         })
     })
 })
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
-    res.send(`On ${req.params.category} page.`)
+    Item.find({category: req.params.category}, (err, allItems) => {
+        res.render(`${req.params.category}.ejs`, {
+            items: allItems,
+            category: req.params.category, 
+        })
+    })
 })
 // SHOW ROUTE ========================================================
 
