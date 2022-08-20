@@ -21,12 +21,9 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Mongo!')
 })
 
-
-// CONNECT CONTROLLER TO MODEL ==================================
-const Item = require('./models/items')
-
- // IMPORT ROUTER ===============================================
-const itemsController = require('./controllers/itemsController')
+// IMPORT ROUTER ================================================
+// Link to external controller files
+const itemsController = require('./controllers/itemsController.js')
 app.use('/inventory', itemsController)
 
 // LISTENER =====================================================
