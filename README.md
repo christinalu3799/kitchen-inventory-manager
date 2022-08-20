@@ -1,4 +1,4 @@
-### Kitchen Inventory Manager: Full-Stack Application
+# Kitchen Inventory Manager: Full-Stack Application
 
 ## Technologies Used
 - HTML/CSS 
@@ -14,6 +14,8 @@ The idea behind this app stems from my current job as a restaurant manager/admin
 
 ## Wireframes
 > Click [here](https://www.figma.com/file/uIWmm9sm7Eeravt4wfSPGo/PROJECT-2---RESTAURANT-INVENTORY-MANAGER?node-id=4%3A2) to see the mockup. 
+<br/>
+
 > Click [here](https://www.figma.com/proto/uIWmm9sm7Eeravt4wfSPGo/PROJECT-2---RESTAURANT-INVENTORY-MANAGER?page-id=0%3A1&node-id=4%3A2&viewport=944%2C-3721%2C1.11&scaling=scale-down&starting-point-node-id=4%3A2) to see prototype (may take a while to load).
 
 ## User Stories
