@@ -78,7 +78,7 @@ app.use('/inventory', itemsController)
 //         },
 //         {
 //             item: 'Soybean Oil',
-//             category: 'pantry/frozen',
+//             category: 'pantryOrFrozen',
 //             price: 39.50,
 //             units: 3,
 //             qtyPerUnit: '35 lbs', 
@@ -87,7 +87,7 @@ app.use('/inventory', itemsController)
 //         },
 //         {
 //             item: 'Hair Nets',
-//             category: 'non-food',
+//             category: 'nonfood',
 //             price: 7.99,
 //             units: 5,
 //             qtyPerUnit: '100 nets', 
@@ -96,7 +96,7 @@ app.use('/inventory', itemsController)
 //         },
 //         {
 //             item: 'Clear Gloves',
-//             category: 'non-food',
+//             category: 'nonfood',
 //             price: 15,
 //             units: 5,
 //             qtyPerUnit: '100 pairs of gloves', 
@@ -112,6 +112,7 @@ app.use('/inventory', itemsController)
 //     }
 // })
 // LISTENER =====================================================
+
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}!`)
 })
