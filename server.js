@@ -18,4 +18,11 @@ mongoose.connection.once('open', () => {
 // CONNECT CONTROLLER TO MODEL ==================================
 const Item = require('./models/items')
 
-// USE ==========================================================
+
+
+
+
+// LISTENER =====================================================
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}!`)
+})
