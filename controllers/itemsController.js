@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
     Item.find({category: req.params.category}, (err, allItems) => {
+        console.log(allItems)
         res.render(`${req.params.category}.ejs`, {
             items: allItems,
             category: req.params.category 
