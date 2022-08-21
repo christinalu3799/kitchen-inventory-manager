@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: grey;
+}
+
+.main {
+    background-color: white;
+    width: 70%;
+}
+
+.image {
+    width: 70%;
+}
+.image img {
+    object-fit: cover;
+    width: 100%;
+}

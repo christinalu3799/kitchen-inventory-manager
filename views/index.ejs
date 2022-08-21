@@ -1,11 +1,15 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
-<h1>Index Page</h1>
-<ul>
-    <% for (let i = 0; i < categories.length; i++) { %> 
-        <li>
-            <a href='/inventory/<%= categories[i] %>'> <%= titles[i] %> </a>
-        </li>
-    <% } %> 
-</ul>
+
+<div class="main">
+    <h1>Index Page</h1>
+    <ul>
+        <% for (let i = 0; i < categories.length; i++) { %> 
+            <li>
+                <a href='/inventory/<%= categories[i] %>'> <%= titles[i] %> </a>
+            </li>
+        <% } %> 
+    </ul>   
+</div>
+
 <%- include('./partials/footer.ejs') %>

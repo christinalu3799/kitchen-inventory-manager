@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
     Item.find({category: req.params.category}, (err, allItems) => {
-        console.log(allItems)
         res.render(`${req.params.category}.ejs`, {
             items: allItems,
             category: req.params.category 
@@ -26,8 +25,17 @@ router.get('/:category', (req, res) => {
     })
 })
 // SHOW ROUTE ========================================================
+router.get('/:category/:id', (req, res) => {
+    Item.findById(req.params.id, (err, item) => {
+        console.log(item)
 
-
+        res.render('show.ejs', {
+            item: item,
+            category: req.params.category,
+            id: req.params.id
+        })
+    })
+})
 
 // NEW ROUTE =========================================================
 
