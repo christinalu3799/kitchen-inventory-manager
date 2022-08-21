@@ -18,7 +18,7 @@ mongoose.connect(`${MONGODB_URI}`, {
     useNewUrlParser: true
 })
 mongoose.connection.once('open', () => {
-    console.log('Connected to Mongo!')
+    console.log(`Connected to Mongo at ${mongoose.connection.host}: ${mongoose.connection.port}`)
 })
 mongoose.connection.on('error', (err) => {
     console.log(err.message + 'Mongo not running!')
