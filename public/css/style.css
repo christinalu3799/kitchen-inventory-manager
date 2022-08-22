@@ -1,17 +1,72 @@
+@font-face {
+    font-family: 'Richardson';
+    src: url(RichardsonScriptDEMO.otf) format('opentype');
+}
 * {
     box-sizing: border-box;
+    margin: 0;
 }
-
 body {
+    position: relative;
     display: flex;
-    background-color: grey;
+    justify-content: flex-end;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5;
 }
-
-.main {
+nav {
+    width: 30%;
+    height: 100vh;
     background-color: white;
+    position: fixed;
+    left: 0;
+}
+h1 {
+    font-family: 'Richardson';
+    font-size: 5rem;
+    font-weight: lighter;
+}
+.main {
+    background-color: #C8D7D6;
     width: 70%;
+    padding: 2rem;
+    min-height: 100vh;
 }
 
+/* =========================================================== */
+/*                               INDEX                         */
+/* =========================================================== */
+
+#index .categories {
+    display: flex; 
+    flex-wrap: wrap;
+    width: 100%;
+}
+#index a {
+    text-decoration: none;
+    color: black;
+}
+#index .categories .category-card {
+    width: 300px;
+    height: fit-content;
+    margin: 0.5rem; 
+    padding: 0.5rem;
+    border-radius: 3px;
+    background-color: white;
+} 
+#index .categories .category-card .category-img {
+    width: 100%;
+    height: 200px;
+}
+#index .categories .category-card .category-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================== */
+/*                               SHOW                          */
+/* =========================================================== */
 .image {
     width: 70%;
 }

@@ -1,15 +1,25 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
 
-<div class="main">
+<div class="main" id="index">
     <h1>Index Page</h1>
-    <ul>
+    <div class="categories">
         <% for (let i = 0; i < categories.length; i++) { %> 
-            <li>
-                <a href='/inventory/<%= categories[i] %>'> <%= titles[i] %> </a>
-            </li>
+            <div class="category-card">
+                <a href='/inventory/<%= categories[i].type %>'>
+                    <h2><%= titles[i] %></h2>
+                    <div class="category-img">
+                        <img src=<%= categories[i].imageURL %> alt=<%= categories[i].type %>>  
+                    </div>
+                </a>
+            </div>
+                    
         <% } %> 
-    </ul>   
+
+
+
+    </div>
+        
 </div>
 
 <%- include('./partials/footer.ejs') %>
