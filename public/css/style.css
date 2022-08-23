@@ -58,7 +58,7 @@ h2 {
     padding: 1rem;
     border-radius: 3px;
     background-color: white;
-    transition: transform ease-in-out 300ms;
+    transition: transform ease-in-out 200ms;
 } 
 #index .categories .category-card:hover, 
 .category .item-card:hover {
@@ -90,7 +90,7 @@ h2 {
     padding: 1rem;
     border-radius: 5px;
     background-color: white;
-    transition: transform ease 300ms;
+    transition: transform ease 200ms;
 }
 .category .item-card .item-img {
     width: 100%; 
@@ -121,8 +121,33 @@ h2 {
 /* =========================================================== */
 /*                               NEW                           */
 /* =========================================================== */
+form input:focus, 
+select:focus {
+    outline: none;
+}
+select,
+.create-btn {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 #new form#new-form {
     display: flex; 
     flex-direction: column;
     width: 50%;
+}
+#new form#new-form input, 
+select {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: 0 0 0.5rem 0;
+}
+#new form#new-form .create-btn {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(51, 51, 51);
+    margin: 1.5rem 0;
+    transition: transform ease-in-out 200ms;
+}
+#new form#new-form .create-btn:hover {
+    transform: translateY(-5px);
 }
