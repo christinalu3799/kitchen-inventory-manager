@@ -2,8 +2,7 @@
 <%- include('./partials/nav.ejs') %>
 
 <div class="main category">
-    <h1>Produce</h1>
-    <%- include('./partials/item.ejs', {items: items, category: category}) %>
+    <%- include('./partials/item.ejs', {items: items, category: category, categories: categories}) %>
 </div>  
 
 <%- include('./partials/footer.ejs') %>

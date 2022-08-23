@@ -6,11 +6,11 @@
     <div class="categories">
         <% for (let i = 0; i < categories.length; i++) { %> 
             <div class="category-card">
-                <a href='/inventory/<%= categories[i].type %>'>
+                <a href='/inventory/<%= categories[i].category %>'>
                     <div class="category-img">
-                        <img src=<%= categories[i].imageURL %> alt=<%= categories[i].type %>>  
+                        <img src=<%= categories[i].imageURL %> alt=<%= categories[i].category %>>  
                     </div>
-                    <h2><%= titles[i] %></h2>
+                    <h2><%= categories[i].title %></h2>
                 </a>
             </div>       
         <% } %> 

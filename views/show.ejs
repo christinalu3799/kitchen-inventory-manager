@@ -1,16 +1,22 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
+    <div class="main" id="show">
+        <a href="/inventory/<%= category %>" class="back-btn">Back</a>
 
-    <div class="main">
-        <h1><%= item.item %> </h1>
-        <p>Price: $<%= item.price %> </p>
-        <p>Units: <%= item.units %> </p>
-        <p>Quantity per Unit: <%= item.qtyPerUnit %> </p>
-        <div class="image">
-            <img src=<%= item.imageURL %> alt=<%= item.item %>> 
+        <h1><%= item.item %></h1>
+        <div class="show-card">
+            <h3>Price: $<%= item.price %> </h3>
+            <h3>Units: <%= item.units %> </h3>
+            <p>Quantity per Unit: <%= item.qtyPerUnit %> </p>
+
+            <div class="image">
+                <img src=<%= item.imageURL %> alt=<%= item.item %>> 
+            </div>
+
+            <p>Notes: <%= item.notes %> </p>
+            <p style="font-style: italic">Last Updated: <%= item.updatedAt %> </p>
         </div>
-        <p>Notes: <%= item.notes %> </p>
-        <p>Last Updated: <%= item.updatedAt %> </p>
+        
     </div>
 
 <%- include('./partials/footer.ejs') %>
