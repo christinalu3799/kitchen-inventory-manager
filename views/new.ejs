@@ -1,0 +1,38 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/nav.ejs') %>
+    
+<div class='main' id='new'>
+    <a href="/inventory" class="back-btn">Back</a>
+    <h1>New Item</h1>
+    <form action='/inventory' method='POST' id='new-form'>
+        <label for='item'>Item Name:</label>
+        <input type='text' name='item' id='item'>
+
+        <label for='category'>Select a Category:</label>
+        <select name='category' id='category'>
+            <% for(let i = 0; i < categories.length; i++) { %> 
+                <option value = <%= categories[i].category %> > <%= categories[i].title %> </option>
+            <% } %> 
+        </select>
+
+        <label for='price'>Price ($): </label>
+        <input type='number' name='price' id='price'>
+
+        <label for='units'>Units: </label>
+        <input type='number' name='units' id='units'>
+
+        <label for='qtyPerUnit'>Quantity per Unit: </label>
+        <input type='text' name='qtyPerUnit' id='qtyPerUnit'>
+
+        <label for='imageURL'>Image URL: </label>
+        <input type='text' name='imageURL' id='imageURL'>
+
+        <label for='notes'>Additional Notes: </label>
+        <input type='text' name='notes' id='notes'>
+
+        <input type='submit' value='Create New Item'>
+    </form>
+
+    </div>
+
+<%- include('./partials/footer.ejs') %>

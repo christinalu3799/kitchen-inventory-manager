@@ -54,13 +54,21 @@ router.get('/:category/:id', (req, res) => {
         })
     })
 })
-
 // NEW ROUTE =========================================================
-
-
-
+router.get('/new', (req, res) => {
+    res.render('new.ejs',{categories})
+})
 // CREATE ROUTE ======================================================
-
+router.post('/', (req, res) => {
+    Item.create(req.body, (err, createdItem) => {
+        if (err) {
+            console.log(err)
+            res.redirect('/new')
+        } else {
+            res.redirect(`/${req.body.category}`)
+        }
+    })
+})
 
 
 // EDIT ROUTE ========================================================

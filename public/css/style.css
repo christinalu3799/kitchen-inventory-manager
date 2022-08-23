@@ -58,7 +58,7 @@ h2 {
     padding: 1rem;
     border-radius: 3px;
     background-color: white;
-    transition: transform ease 300ms;
+    transition: transform ease-in-out 300ms;
 } 
 #index .categories .category-card:hover, 
 .category .item-card:hover {
@@ -117,5 +117,12 @@ h2 {
 #show .image img {
     object-fit: cover;
     width: 100%;
-    
+}
+/* =========================================================== */
+/*                               NEW                           */
+/* =========================================================== */
+#new form#new-form {
+    display: flex; 
+    flex-direction: column;
+    width: 50%;
 }
