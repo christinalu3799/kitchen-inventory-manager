@@ -1,9 +1,13 @@
-<ul>
+<div class="items-container">
     <% for (let i = 0; i < items.length; i++) { %> 
-        <li>
-            <a href='/inventory/<%= category %>/<%= items[i].id %> '>
-                <%= items[i].item %>
-            </a> 
-        </li>
+        <a href='/inventory/<%= category %>/<%= items[i].id %> '>
+            
+            <div class="item-card">
+                <h2><%= items[i].item %></h2>
+                <div class="item-img">
+                    <img src=<%= items[i].imageURL %> alt=<%= items[i].item %>> 
+                </div>
+            </div>
+        </a> 
     <% } %> 
-</ul>
+</div>

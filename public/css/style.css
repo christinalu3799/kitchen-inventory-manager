@@ -10,8 +10,9 @@ body {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    font-family:'Courier New', Courier, monospace;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5;
+    
 }
 nav {
     width: 30%;
@@ -20,10 +21,18 @@ nav {
     position: fixed;
     left: 0;
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 h1 {
     font-family: 'Richardson';
     font-size: 5rem;
     font-weight: lighter;
+}
+h2 {
+    text-align: center;
+    margin: 1rem 0 0 0;
 }
 .main {
     background-color: #C8D7D6;
@@ -31,39 +40,62 @@ h1 {
     padding: 2rem;
     min-height: 100vh;
 }
-
 /* =========================================================== */
 /*                               INDEX                         */
 /* =========================================================== */
-
 #index .categories {
     display: flex; 
     flex-wrap: wrap;
     width: 100%;
 }
-#index a {
-    text-decoration: none;
-    color: black;
-}
 #index .categories .category-card {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     height: fit-content;
     margin: 0.5rem; 
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 3px;
     background-color: white;
+    transition: transform ease 300ms;
 } 
+#index .categories .category-card:hover, 
+.category .item-card:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 10px 10px rgb(116, 116, 116));
+}
 #index .categories .category-card .category-img {
     width: 100%;
     height: 200px;
 }
-#index .categories .category-card .category-img img {
+#index .categories .category-card .category-img img,
+.category .item-card .item-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-
+/* =========================================================== */
+/*                             CATEGORY                        */
+/* =========================================================== */
+.category .items-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    width: 100%;
+}
+.category .item-card {
+    width: 250px; 
+    height: fit-content;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: white;
+    transition: transform ease 300ms;
+}
+.category .item-card .item-img {
+    width: 100%; 
+    height: 200px;
+}
 /* =========================================================== */
 /*                               SHOW                          */
 /* =========================================================== */

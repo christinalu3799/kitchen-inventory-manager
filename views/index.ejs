@@ -7,17 +7,13 @@
         <% for (let i = 0; i < categories.length; i++) { %> 
             <div class="category-card">
                 <a href='/inventory/<%= categories[i].type %>'>
-                    <h2><%= titles[i] %></h2>
                     <div class="category-img">
                         <img src=<%= categories[i].imageURL %> alt=<%= categories[i].type %>>  
                     </div>
+                    <h2><%= titles[i] %></h2>
                 </a>
-            </div>
-                    
+            </div>       
         <% } %> 
-
-
-
     </div>
         
 </div>
