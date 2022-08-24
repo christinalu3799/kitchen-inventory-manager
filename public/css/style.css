@@ -10,10 +10,15 @@ body {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5;
     
 }
+body, 
+select,
+.create-btn {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -33,14 +38,15 @@ h2 {
     transition: color ease-in-out 200ms;
 }
 .back:hover {
-    color: rgb(86, 99, 95);
+    color: rgb(234, 133, 0);
 }
 .back img {
     width: 1.5rem;
     margin: 0 0.5rem 0 0;
 }
 .main {
-    background-color: #C8D7D6;
+    /* background-color: #C8D7D6; */
+    background-color: rgb(255, 228, 141);
     width: 70%;
     padding: 2rem;
     min-height: 100vh;
@@ -76,10 +82,14 @@ nav .nav-btn {
     justify-content: flex-start;
     align-items: center;
     width: 140px;
-    background-color: #C8D7D6;
+    background-color: rgb(255, 228, 141);
     border-radius: 5px;
     margin: 0.5rem 0;
     padding: 0.5rem;
+    transition: transform 200ms ease-in-out;
+}
+nav .nav-btn:hover {
+    transform: translateY(-5px);
 }
 nav .nav-btn img {
     width: 2rem;
@@ -89,6 +99,20 @@ nav .nav-btn img {
 /* =========================================================== */
 /*                               INDEX                         */
 /* =========================================================== */
+#index {
+    display: flex;
+    flex-direction: column;
+}
+#index h2 {
+    text-align: left;
+}
+#index .summary {
+    background-color: white;
+    border-radius: 5px;
+    width: 50%;
+    margin: 1rem 0.5rem 2rem 0.5rem;
+    padding: 1rem;
+}
 #index .categories {
     display: flex; 
     flex-wrap: wrap;
@@ -101,6 +125,7 @@ nav .nav-btn img {
     width: 300px;
     height: fit-content;
     margin: 0.5rem; 
+    padding: 0.5rem;
     border-radius: 3px;
     background-color: white;
     transition: transform ease-in-out 200ms;
@@ -170,10 +195,7 @@ form input:focus,
 select:focus {
     outline: none;
 }
-select,
-.create-btn {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+
 #new form#new-form {
     display: flex; 
     flex-direction: column;
