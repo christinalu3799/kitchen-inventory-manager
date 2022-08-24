@@ -80,9 +80,11 @@ router.get('/:category/:id/edit', (req, res) => {
     })
 })
 // UPDATE ROUTE ======================================================
-
-
-
+router.put('/:category/:id', (req, res) => {
+    Item.findByIdAndUpdate(req.params.id, req.body, (err, foundItem) => {
+        res.redirect(`/inventory/${foundItem.category}`)
+    })
+})
 // DELETE ROUTE ======================================================
 
 module.exports = router
