@@ -45,11 +45,11 @@ h2 {
     margin: 0 0.5rem 0 0;
 }
 .main {
-    /* background-color: #C8D7D6; */
-    background-color: rgb(255, 228, 141);
+    background-color: #fff9dc;
     width: 70%;
     padding: 2rem;
     min-height: 100vh;
+    border-left: 8px solid #ffeaab;
 }
 /* =========================================================== */
 /*                                NAV                          */
@@ -64,6 +64,7 @@ nav {
     background-color: white;
     position: fixed;
     left: 0;
+    border-right: 12px solid rgb(244, 199, 54);;
 }
 nav h1 {
     text-align: center;
@@ -112,6 +113,7 @@ nav .nav-btn img {
     width: 50%;
     margin: 1rem 0.5rem 2rem 0.5rem;
     padding: 1rem;
+    filter: drop-shadow(0 1px 5px rgb(189, 189, 189))
 }
 #index .categories {
     display: flex; 
@@ -128,6 +130,7 @@ nav .nav-btn img {
     padding: 0.5rem;
     border-radius: 3px;
     background-color: white;
+    filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
     transition: transform ease-in-out 200ms;
 } 
 #index .categories .category-card:hover, 
@@ -160,6 +163,7 @@ nav .nav-btn img {
     padding: 0.5rem;
     border-radius: 5px;
     background-color: white;
+    filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
     transition: transform ease 200ms;
 }
 .category .item-card .item-img {
@@ -177,6 +181,7 @@ nav .nav-btn img {
     background-color: white;
     border-radius: 5px;
     padding: 1rem;
+    filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
 }
 #show .image {
     margin: 0.5rem 0;
