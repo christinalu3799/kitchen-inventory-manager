@@ -52,6 +52,13 @@ nav h1 {
     line-height: 1.15;
     margin: 2rem;
 }
+nav hero .icons-container {
+    margin: 0 0 3rem 0;
+}
+nav hero .icons-container img {
+    width: 3rem;
+    margin: 0 1rem;
+}
 /* =========================================================== */
 /*                               INDEX                         */
 /* =========================================================== */
