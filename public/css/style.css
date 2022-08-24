@@ -27,6 +27,18 @@ h2 {
     text-align: center;
     margin: 0.5rem 0;
 }
+.back {
+    display: flex;
+    align-items: center;
+    transition: color ease-in-out 200ms;
+}
+.back:hover {
+    color: rgb(86, 99, 95);
+}
+.back img {
+    width: 1.5rem;
+    margin: 0 0.5rem 0 0;
+}
 .main {
     background-color: #C8D7D6;
     width: 70%;

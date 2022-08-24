@@ -1,4 +1,9 @@
-<a href="/inventory/" class="back-btn">Back</a>
+<a href="/inventory" class="back-btn">
+    <div class="back">
+        <img src="/images/arrow.png">
+        <p>Back</p>
+    </div>
+</a>
 
 <% let c = categories.find(cat => cat.category === category) %> 
 <h1><%= c.title %> </h1>

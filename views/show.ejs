@@ -1,9 +1,15 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
     <div class="main" id="show">
-        <a href="/inventory/<%= category %>" class="back-btn">Back</a>
-
+        <a href="/inventory/<%= category %> " class="back-btn">
+            <div class="back">
+                <img src="/images/arrow.png">
+                <p>Back</p>
+            </div>
+        </a>
+        
         <h1><%= item.item %></h1>
+
         <div class="show-card">
             <h3>Price: $<%= item.price %> </h3>
             <h3>Units: <%= item.units %> </h3>

@@ -2,7 +2,14 @@
 <%- include('./partials/nav.ejs') %>
     
 <div class='main' id='new'>
-    <a href="/inventory" class="back-btn">Back</a>
+    <a href="/inventory" class="back-btn">
+        <div class="back">
+            <img src="/images/arrow.png">
+            <p>Back</p>
+        </div>
+    </a>
+    
+
     <h1>New Item</h1>
     <form action='/inventory' method='POST' id='new-form'>
         <label for='item'>Item Name:</label>
