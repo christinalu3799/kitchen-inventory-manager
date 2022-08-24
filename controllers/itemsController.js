@@ -65,14 +65,20 @@ router.post('/', (req, res) => {
             console.log(err)
             res.redirect('/new')
         } else {
-            res.redirect(`/${req.body.category}`)
+            res.redirect(`/inventory/${req.body.category}`)
         }
     })
 })
 // EDIT ROUTE ========================================================
-
-
-
+router.get('/:category/:id/edit', (req, res) => {
+    Item.findById(req.params.id, (err, foundItem) => {
+        res.render('edit.ejs', {
+            item: foundItem,
+            categories: categories,
+            category: req.params.category
+        })
+    })
+})
 // UPDATE ROUTE ======================================================
 
 
