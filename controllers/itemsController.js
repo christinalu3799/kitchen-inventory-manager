@@ -86,5 +86,12 @@ router.put('/:category/:id', (req, res) => {
     })
 })
 // DELETE ROUTE ======================================================
+router.delete('/:category/:id', (req, res) => {
+    Item.findByIdAndRemove(req.params.id, (err, itemToDelete) => {
+        res.redirect(`/inventory/${req.params.category}`)
+    })
+})
 
+
+// EXPORT DATA =======================================================
 module.exports = router

@@ -23,6 +23,11 @@
             <p style="font-style: italic">Last Updated: <%= item.updatedAt %> </p>
             <br>
             <a href="/inventory/<%= category %>/<%= item.id %>/edit" class="edit-btn">Edit</a>
+
+            <!-- DELETE BUTTON -->
+            <form action="/inventory/<%= category %>/<%= item.id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Remove Item">
+            </form>
         </div>
         
     </div>
