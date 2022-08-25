@@ -1,6 +1,7 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
-    <div class="main" id="show">
+    <div class="main" id="restock">
+
         <a href="/inventory" class="back-btn">
             <div class="back">
                 <img src="/images/arrow.png">
@@ -10,7 +11,11 @@
         
         <h1>Need to Restock Soon!</h1>
 
-        
+        <h2>Low Inventory! Be sure to order more soon!</h2>
+        <% for(let i = 0; i < toRestockItems.length; i++) { %>
+            <p> <%= toRestockItems[i].item %> </p> 
+            <p> Units Left: <%= toRestockItems[i].units %> </p> 
+        <% } %> 
     </div>
 
 <%- include('./partials/footer.ejs') %>

@@ -38,9 +38,7 @@ router.get('/', (req, res) => {
 router.get('/restock', (req, res) => {
     
     Item.find({units: {$lt:2}}, (err, toRestockItems) => {
-        console.log(toRestockItems)
-        res.render('restock.ejs')
-        
+        res.render('restock.ejs', {toRestockItems})
     })
 })
 // Categories --------------------------------------------------------
