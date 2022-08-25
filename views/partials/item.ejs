@@ -16,6 +16,8 @@
                 <div class="item-img">
                     <img src=<%= items[i].imageURL %> alt=<%= items[i].item %>> 
                 </div>
+                <h3>$<%= items[i].price %> </h3>
+                <p>Units: <%= items[i].units %> </p>
                 <a href="/inventory/<%= category %>/<%= items[i].id %>/edit" class="edit-btn">Edit</a>
             </div>
         </a> 

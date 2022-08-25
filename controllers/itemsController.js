@@ -104,8 +104,5 @@ router.delete('/:category/:id', (req, res) => {
         res.redirect(`/inventory/${req.params.category}`)
     })
 })
-
-
-
 // EXPORT DATA =======================================================
 module.exports = router

@@ -63,7 +63,7 @@ nav {
     background-color: white;
     position: fixed;
     left: 0;
-    border-right: 12px solid rgb(244, 199, 54);;
+    border-right: 12px solid rgb(244, 199, 54);
 }
 nav h1 {
     text-align: center;
@@ -176,7 +176,7 @@ nav .nav-btn img {
     display: flex; 
     flex-direction: column;
     width: 70%;
-    max-width: 500px;
+    max-width: 450px;
     background-color: white;
     border-radius: 3px;
     padding: 1rem;
@@ -185,7 +185,7 @@ nav .nav-btn img {
 #show .image {
     margin: 0.5rem 0;
     width: 100%;
-    height: 300px;
+    height: auto;
     overflow: hidden;
 }
 #show .image img {
@@ -251,4 +251,24 @@ select {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+/* =========================================================== */
+/*                              TABLE                          */
+/* =========================================================== */
+table {
+    background-color: white;
+    border-collapse: collapse;
+    text-align: left;
+}
+table thead {
+    background-color: rgb(244, 199, 54);
+}
+th, td {
+    padding: 0.5rem;
+}
+tr:nth-child(even) {
+    background-color: #ffeaab;
+}
+.filter-btns {
+    margin: 1rem 0;
 }
