@@ -34,6 +34,15 @@ router.get('/', (req, res) => {
         })
     })
 })
+// RESTOCK ROUTE =====================================================
+router.get('/restock', (req, res) => {
+    
+    Item.find({units: {$lt:2}}, (err, toRestockItems) => {
+        console.log(toRestockItems)
+        res.render('restock.ejs')
+        
+    })
+})
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
     Item.find({category: req.params.category}, (err, allItems) => {
@@ -91,6 +100,7 @@ router.delete('/:category/:id', (req, res) => {
         res.redirect(`/inventory/${req.params.category}`)
     })
 })
+
 
 
 // EXPORT DATA =======================================================
