@@ -10,12 +10,19 @@
         </a>
         
         <h1>Need to Restock Soon!</h1>
-
         <h2>Low Inventory! Be sure to order more soon!</h2>
-        <% for(let i = 0; i < toRestockItems.length; i++) { %>
-            <p> <%= toRestockItems[i].item %> </p> 
-            <p> Units Left: <%= toRestockItems[i].units %> </p> 
-        <% } %> 
+
+        <div class="restock-container">
+            <% for(let i = 0; i < toRestockItems.length; i++) { %>
+                <div class="restock-item">
+                    <h4> <%= toRestockItems[i].item %> </h4> 
+                    <div class="image">
+                        <img src=<%= toRestockItems[i].imageURL %> atl=<%= toRestockItems[i].item %>> 
+                    </div>
+                    <p> Units Left: <%= toRestockItems[i].units %> </p>
+                </div>
+            <% } %> 
+        </div>
     </div>
 
 <%- include('./partials/footer.ejs') %>

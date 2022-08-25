@@ -37,8 +37,14 @@ router.get('/', (req, res) => {
 // RESTOCK ROUTE =====================================================
 router.get('/restock', (req, res) => {
     
-    Item.find({units: {$lt:2}}, (err, toRestockItems) => {
+    Item.find({units: {$lt:3}}, (err, toRestockItems) => {
         res.render('restock.ejs', {toRestockItems})
+    })
+})
+// TABLE ROUTE =======================================================
+router.get('/table', (req, res) => {
+    Item.find({}, (err, allItems) => {
+        res.render('table.ejs', {allItems})
     })
 })
 // Categories --------------------------------------------------------
