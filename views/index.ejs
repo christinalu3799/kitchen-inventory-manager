@@ -6,13 +6,27 @@
     <div class="summary">
         <h2>SUMMARY</h2>
         <div class="summary-container">
-            <p>No. of Items</p>
-        </div>
-        <div class="summary-container">
-            <p>No. of Containers</p>
-        </div>
-        <div class="summary-container">
-            <p>No. of Items to Restock</p>
+            <div>
+                <% let sum = 0 
+                items.forEach(item => {
+                    sum += item.units
+                }) %>  
+                <h3><%= sum %> Units</h3>
+            </div>
+            <div>
+                <% let numItems = items.length%>
+                <h3><%= numItems %> Items</h3>
+            </div>
+            <div>
+                <% let numRestock = 0
+                items.forEach(item => {
+                    if(item.units < 3) {
+                        numRestock += 1
+                    }
+                })
+                %> 
+                <h3><%= numRestock %> Items to Restock</h3>
+            </div>      
         </div>
     </div>
     <div class="categories">

@@ -14,7 +14,8 @@ body {
 }
 body, 
 select,
-.create-btn {
+.create-btn,
+.filter-btns button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -109,10 +110,20 @@ nav .nav-btn img {
 #index .summary {
     background-color: white;
     border-radius: 3px;
-    width: 50%;
+    width: fit-content;
     margin: 1rem 0.5rem 2rem 0.5rem;
     padding: 1rem;
     filter: drop-shadow(0 1px 5px rgb(189, 189, 189))
+}
+#index .summary .summary-container {
+    display: flex;
+    justify-content: space-between;
+}
+#index .summary .summary-container div {
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    margin: 0 1rem;
+    background-color: rgb(255, 228, 141);
 }
 #index .categories {
     display: flex; 
@@ -271,4 +282,11 @@ tr:nth-child(even) {
 }
 .filter-btns {
     margin: 1rem 0;
+}
+.filter-btns button {
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-size: 1.25rem;
 }
