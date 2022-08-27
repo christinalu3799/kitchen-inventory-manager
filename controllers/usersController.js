@@ -19,7 +19,7 @@ users.post('/', (req, res) => {
             res.send(err)
         } else if (result !== null) {
             console.log('user already exists')
-            res.send(result)
+            res.render('/users/new.ejs')
         } else {
             User.create(req.body, (err, createdUser) => {
             console.log(`New User Created: ${createdUser}`)

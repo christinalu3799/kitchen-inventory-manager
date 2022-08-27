@@ -27,13 +27,19 @@ const categories = [
 ]
 // INDEX ROUTE =======================================================
 router.get('/', (req, res) => {
-    Item.find({}, (err, allItems) => {
-        res.render('index.ejs', {
-            items: allItems,
-            categories: categories,
-            currentUser: req.session.currentUser 
+    // Only allow logged in users to access app
+    if (req.session.currentUser) {
+        Item.find({}, (err, allItems) => {
+            res.render('index.ejs', {
+                items: allItems,
+                categories: categories,
+                currentUser: req.session.currentUser 
+            })
         })
-    })
+    } else {
+        res.redirect('/')
+    }
+    
 })
 // RESTOCK ROUTE =====================================================
 router.get('/restock', (req, res) => {

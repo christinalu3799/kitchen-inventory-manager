@@ -22,7 +22,7 @@ sessions.post('/login', (req, res) => {
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser
-                res.redirect('/')
+                res.redirect('/inventory')
                 console.log('CURRENT USER:', req.session.currentUser)
             } else {
                 // incorrect password
