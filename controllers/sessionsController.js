@@ -5,9 +5,10 @@ const User = require('../models/users.js')
 
 // GET ROUTE =======================================================
 sessions.get('/login', (req, res) => {
-    res.render('sessions/new.ejs', { currentUser: req.session.currentUser })
+    res.render('sessions/new.ejs', { 
+        currentUser: req.session.currentUser 
+    })
   })
-
 // POST ROUTE =======================================================
 sessions.post('/login', (req, res) => {
     // Look for username
@@ -31,4 +32,9 @@ sessions.post('/login', (req, res) => {
     })
 })
 // DELETE ROUTE =======================================================
+sessions.delete('/', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/')
+    })
+})
 module.exports = sessions

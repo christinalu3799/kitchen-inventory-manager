@@ -9,6 +9,13 @@
         </div>
     </hero>
 
+    <% if (currentUser) { %> 
+        <h4>Welcome <%= currentUser.username %> </h4>
+        <!-- Create Log Out Button -->
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out">
+        </form>
+    <% } %> 
     <a href="/inventory">
         <div class="nav-btn">
             <img src="/images/inventory.png">
@@ -40,4 +47,8 @@
             <p>Trash</p>
         </div>
     </a>
+
+    <a href="/">Register</a>
+    <a href="/sessions/login">Login</a>
+  
 </nav>

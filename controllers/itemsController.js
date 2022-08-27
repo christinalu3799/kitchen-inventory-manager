@@ -30,7 +30,8 @@ router.get('/', (req, res) => {
     Item.find({}, (err, allItems) => {
         res.render('index.ejs', {
             items: allItems,
-            categories: categories
+            categories: categories,
+            currentUser: req.session.currentUser 
         })
     })
 })
@@ -38,13 +39,19 @@ router.get('/', (req, res) => {
 router.get('/restock', (req, res) => {
     
     Item.find({units: {$lt:3}}, (err, toRestockItems) => {
-        res.render('restock.ejs', {toRestockItems})
+        res.render('restock.ejs', {
+            toRestockItems: toRestockItems,
+            currentUser: req.session.currentUser 
+        })
     })
 })
 // TABLE ROUTE =======================================================
 router.get('/table', (req, res) => {
     Item.find({}, (err, allItems) => {
-        res.render('table.ejs', {allItems})
+        res.render('table.ejs', {
+            allItems: allItems,
+            currentUser: req.session.currentUser 
+        })
     })
 })
 // Categories --------------------------------------------------------
@@ -53,7 +60,8 @@ router.get('/:category', (req, res) => {
         res.render(`${req.params.category}.ejs`, {
             items: allItems,
             category: req.params.category, 
-            categories: categories
+            categories: categories,
+            currentUser: req.session.currentUser 
         })
     })
 })
