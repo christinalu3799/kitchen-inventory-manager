@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<div class="main" id="index">
+    <a href="/inventory" class="back-btn">
+        <div class="back">
+            <img src="/images/arrow.png">
+            <p>Back</p>
+        </div>
+    </a>
+
+    <h1>Register</h1>
+    <form action="/users/new" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password">
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

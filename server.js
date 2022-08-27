@@ -9,7 +9,7 @@ const session = require('express-session')
 const bcrypt = require('bcrypt')
 
 // Hash String with bcrypt
-const hashedString = bcrypt.hashSync('')
+// const hashedString = bcrypt.hashSync('')
 
 // MIDDLEWARE ===================================================
 app.use(express.static("public"));
@@ -37,8 +37,10 @@ mongoose.connection.on('error', (err) => {
 // IMPORT ROUTER ================================================
 // Link to external controller files
 const itemsController = require('./controllers/itemsController.js')
-const Item = require('./models/items.js')
 app.use('/inventory', itemsController)
+
+const userController = require('./controllers/usersController.js')
+app.use('/users', userController)
 
 // LISTENER =====================================================
 app.listen(PORT, () => {
