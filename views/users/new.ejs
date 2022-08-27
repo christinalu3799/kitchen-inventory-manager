@@ -2,18 +2,21 @@
 <%- include('../partials/nav.ejs') %>
 
 <div class="main" id="register">
+    <div class="register-container"> 
+        <h1>Create New Account</h1>
+        <form action="/" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
 
-    <h1>Register</h1>
-    <form action="/" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+            <input type="submit" value="Register" style="background-color: #f4c736; cursor: pointer;">
+        </form>
+        <p>Already have an account?</p>
+        <a href="/sessions/login" >Click here to sign in.</a>
+    </div>
 
-        <input type="submit" value="Register">
-    </form>
-    <p>Already have an account?<a href="/sessions/login">Click here to sign in.</a></p>
 </div>
 
 <%- include('../partials/footer.ejs') %>

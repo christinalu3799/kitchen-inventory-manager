@@ -17,7 +17,7 @@ sessions.post('/login', (req, res) => {
             console.log(err)
             res.send('Error in database')
         } else if (!foundUser) {
-            res.send('<a  href="/">Sorry, no user found </a>')
+            res.redirect('/')
             // FOUND USER 
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
@@ -34,6 +34,7 @@ sessions.post('/login', (req, res) => {
 // DELETE ROUTE =======================================================
 sessions.delete('/', (req, res) => {
     req.session.destroy(() => {
+        console.log('logged out successfully')
         res.redirect('/')
     })
 })

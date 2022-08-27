@@ -25,21 +25,24 @@ const categories = [
     }
 
 ]
-// INDEX ROUTE =======================================================
-router.get('/', (req, res) => {
-    // Only allow logged in users to access app
+// Check Authentication ==============================================
+const isAuthenticated = (req, res, next) => {
+    console.log(req.session.currentUser)
     if (req.session.currentUser) {
-        Item.find({}, (err, allItems) => {
-            res.render('index.ejs', {
-                items: allItems,
-                categories: categories,
-                currentUser: req.session.currentUser 
-            })
-        })
+        return next()
     } else {
         res.redirect('/')
     }
-    
+}
+// INDEX ROUTE =======================================================
+router.get('/', (req, res) => { 
+    Item.find({}, (err, allItems) => {
+        res.render('index.ejs', {
+            items: allItems,
+            categories: categories,
+            currentUser: req.session.currentUser 
+        })
+    })
 })
 // RESTOCK ROUTE =====================================================
 router.get('/restock', (req, res) => {
@@ -55,6 +58,15 @@ router.get('/restock', (req, res) => {
 router.get('/table', (req, res) => {
     Item.find({}, (err, allItems) => {
         res.render('table.ejs', {
+            allItems: allItems,
+            currentUser: req.session.currentUser 
+        })
+    })
+})
+// TRASH ROUTE =======================================================
+router.get('/trash', (req, res) => {
+    Item.find({}, (err, allItems) => {
+        res.render('trash.ejs', {
             allItems: allItems,
             currentUser: req.session.currentUser 
         })
@@ -78,15 +90,16 @@ router.get('/:category/:id', (req, res) => {
             item: item,
             category: req.params.category,
             id: req.params.id,
+            currentUser: req.session.currentUser
         })
     })
 })
 // NEW ROUTE =========================================================
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
     res.render('new.ejs',{categories})
 })
 // CREATE ROUTE ======================================================
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
     Item.create(req.body, (err, createdItem) => {
         if (err) {
             console.log(err)
@@ -97,23 +110,24 @@ router.post('/', (req, res) => {
     })
 })
 // EDIT ROUTE ========================================================
-router.get('/:category/:id/edit', (req, res) => {
+router.get('/:category/:id/edit', isAuthenticated, (req, res) => {
     Item.findById(req.params.id, (err, foundItem) => {
         res.render('edit.ejs', {
             item: foundItem,
             categories: categories,
-            category: req.params.category
+            category: req.params.category,
+            currentUser: req.session.currentUser
         })
     })
 })
 // UPDATE ROUTE ======================================================
-router.put('/:category/:id', (req, res) => {
+router.put('/:category/:id', isAuthenticated, (req, res) => {
     Item.findByIdAndUpdate(req.params.id, req.body, (err, foundItem) => {
         res.redirect(`/inventory/${foundItem.category}`)
     })
 })
 // DELETE ROUTE ======================================================
-router.delete('/:category/:id', (req, res) => {
+router.delete('/:category/:id', isAuthenticated, (req, res) => {
     Item.findByIdAndRemove(req.params.id, (err, itemToDelete) => {
         res.redirect(`/inventory/${req.params.category}`)
     })

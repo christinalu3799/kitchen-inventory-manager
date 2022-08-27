@@ -10,10 +10,10 @@
     </hero>
 
     <% if (currentUser) { %> 
-        <h3>Welcome <%= currentUser.username %>! </h3>
+        <h2>Welcome <%= currentUser.username %>! </h2>
         <!-- Create Log Out Button -->
         <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out">
+            <input type="submit" value="Log Out" id="logout-btn">
         </form>
     <% } %> 
     <a href="/inventory">
@@ -22,12 +22,7 @@
             <p>Home Page</p>
         </div>
     </a>
-    <a href="/inventory/new">
-        <div class="nav-btn">
-            <img src="/images/new-item.png">
-            <p>New Item</p>
-        </div>
-    </a>
+    
     <a href="/inventory/restock">
         <div class="nav-btn">
             <img src="/images/restock.png">
@@ -41,14 +36,15 @@
         </div>
     </a>
     
-    <a href="#">
+    <a href="/inventory/trash">
         <div class="nav-btn">
             <img src="/images/trash.png">
             <p>Trash</p>
         </div>
     </a>
-
-    <a href="/">Register</a>
-    <a href="/sessions/login">Login</a>
+    <% if (!currentUser) { %> 
+        <a href="/">Register</a>
+        <a href="/sessions/login">Login</a>
+    <% } %> 
   
 </nav>

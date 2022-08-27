@@ -8,6 +8,13 @@
 <% let c = categories.find(cat => cat.category === category) %> 
 <h1><%= c.title %> </h1>
 
+<a href="/inventory/new">
+    <div class="new-btn">
+        <img src="/images/new-item.png">
+        <p>New Item</p>
+    </div>
+</a>
+
 <div class="items-container">
     <% for (let i = 0; i < items.length; i++) { %> 
         <a href='/inventory/<%= category %>/<%= items[i].id %>'>
