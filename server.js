@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 require('dotenv').config()
 const PORT = process.env.PORT 
 const MONGODB_URI = process.env.MONGODB_URI
+const session = require('express-session')
 
 // MIDDLEWARE ===================================================
 app.use(express.static("public"));
@@ -12,6 +13,11 @@ app.use(express.static("files"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false, 
+    saveUninitialized: false
+}))
 
 // CONNECT TO MONGOOSE SERVER ===================================
 const mongoose = require('mongoose')

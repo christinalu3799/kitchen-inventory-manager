@@ -97,6 +97,13 @@ nav .nav-btn img {
     margin: 0 10px 0 0;
     height: auto;
 }
+nav .nav-btn p {
+    width: 100%;
+    text-align: center;
+}
+nav .nav-btn #trash-btn {
+    background-color: blue;
+}
 /* =========================================================== */
 /*                               INDEX                         */
 /* =========================================================== */
@@ -121,9 +128,9 @@ nav .nav-btn img {
 }
 #index .summary .summary-container div {
     padding: 0.5rem 1rem;
-    border-radius: 30px;
-    margin: 0 1rem;
-    background-color: rgb(255, 228, 141);
+    border-radius: 3px;
+    margin: 0 0.5rem;
+    background-color: #ffeaab;
 }
 #index .categories {
     display: flex; 
@@ -134,7 +141,7 @@ nav .nav-btn img {
     display: flex; 
     flex-direction: column;
     align-items: center;
-    width: 300px;
+    width: 200px;
     height: fit-content;
     margin: 0.5rem; 
     padding: 0.5rem;
