@@ -270,15 +270,13 @@ table {
     background-color: white;
     border-collapse: collapse;
     text-align: left;
+    width: 100%;
 }
 table thead {
     background-color: rgb(244, 199, 54);
 }
 th, td {
     padding: 0.5rem;
-}
-tr:nth-child(even) {
-    background-color: #ffeaab;
 }
 .filter-btns {
     margin: 1rem 0;

@@ -12,11 +12,11 @@
         <h1>Table View</h1>
         
         <div class="filter-btns">
-            <button>All</button>
-            <button>Produce</button>
-            <button>Meat</button>
-            <button>Pantry/Frozen</button>
-            <button>Non-Food</button>
+            <button id="all-btn">All</button>
+            <button id="produce-btn">Produce</button>
+            <button id="meat-btn">Meat</button>
+            <button id="pantry-btn">Pantry/Frozen</button>
+            <button id="nonfood-btn">Non-Food</button>
         </div>
 
         <div class="table-container">
@@ -31,9 +31,8 @@
                 </thead>
                 <tbody>
                     <% for(let i = 0; i < allItems.length; i++) { %> 
-                        <tr>
+                        <tr class='<%= allItems[i].category %> row' style="display: table-row">
                             <td> <%= allItems[i].item %> </td>
-                            <!-- <td> <%= allItems[i].category %> </td> -->
                             <td> <%= allItems[i].price %> </td>
                             <td> <%= allItems[i].units %> </td>
                             <td> <%= allItems[i].qtyPerUnit %> </td>
@@ -44,7 +43,10 @@
             </table>
         </div>
     </div>
-
-    <script src="/script.js"></script>
+    <% let items = allItems %> 
+    <script src="/script.js">
+        let all = "<%= items %>"
+        console.log(all)
+    </script>
 
 <%- include('./partials/footer.ejs') %>
