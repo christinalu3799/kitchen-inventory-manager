@@ -38,6 +38,9 @@ app.use('/inventory', itemsController)
 const userController = require('./controllers/usersController.js')
 app.use('/', userController)
 
+const sessionsController = require('./controllers/sessionsController.js')
+app.use('/sessions', sessionsController)
+
 // LISTENER =====================================================
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}!`)

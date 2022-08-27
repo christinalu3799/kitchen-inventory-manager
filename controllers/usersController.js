@@ -5,7 +5,6 @@ const users = express.Router()
 const User = require('../models/users.js')
 const app = express()
 // GET ROUTE =======================================================
-// route: /users/new
 users.get('/', (req, res) => {
     res.render('users/new.ejs')
 })
