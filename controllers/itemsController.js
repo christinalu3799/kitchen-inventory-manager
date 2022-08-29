@@ -46,8 +46,7 @@ router.get('/', (req, res) => {
 })
 // RESTOCK ROUTE =====================================================
 router.get('/restock', (req, res) => {
-    
-    Item.find({units: {$lt:3}}, (err, toRestockItems) => {
+    Item.find({units: {$lt:3}, deleted: false}, (err, toRestockItems) => {
         res.render('restock.ejs', {
             toRestockItems: toRestockItems,
             currentUser: req.session.currentUser 
@@ -56,7 +55,7 @@ router.get('/restock', (req, res) => {
 })
 // TABLE ROUTE =======================================================
 router.get('/table', (req, res) => {
-    Item.find({}, (err, allItems) => {
+    Item.find({deleted: false}, (err, allItems) => {
         res.render('table.ejs', {
             allItems: allItems,
             currentUser: req.session.currentUser 
@@ -65,7 +64,7 @@ router.get('/table', (req, res) => {
 })
 // TRASH ROUTE =======================================================
 router.get('/trash', (req, res) => {
-    Item.find({}, (err, allItems) => {
+    Item.find({deleted:true}, (err, allItems) => {
         res.render('trash.ejs', {
             allItems: allItems,
             currentUser: req.session.currentUser 
@@ -74,13 +73,21 @@ router.get('/trash', (req, res) => {
 })
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
-    Item.find({category: req.params.category}, (err, allItems) => {
+    Item.find({category: req.params.category, deleted: false}, (err, allItems) => {
         res.render(`${req.params.category}.ejs`, {
             items: allItems,
             category: req.params.category, 
             categories: categories,
             currentUser: req.session.currentUser 
         })
+    })
+})
+// NEW ROUTE =========================================================
+router.get('/:category/new', isAuthenticated, (req, res) => {
+    res.render('new.ejs',{
+        categories: categories, 
+        category: req.params.category,
+        currentUser: req.session.currentUser
     })
 })
 // SHOW ROUTE ========================================================
@@ -94,10 +101,7 @@ router.get('/:category/:id', (req, res) => {
         })
     })
 })
-// NEW ROUTE =========================================================
-router.get('/new', isAuthenticated, (req, res) => {
-    res.render('new.ejs',{categories})
-})
+
 // CREATE ROUTE ======================================================
 router.post('/', isAuthenticated, (req, res) => {
     Item.create(req.body, (err, createdItem) => {
@@ -120,6 +124,12 @@ router.get('/:category/:id/edit', isAuthenticated, (req, res) => {
         })
     })
 })
+//RESTORE ROUTE ======================================================
+router.put('/trash/:id', isAuthenticated, (req, res) => {
+    Item.findByIdAndUpdate(req.params.id, {deleted: false}, (err, restoredItem) => {
+        res.redirect('/inventory/trash')
+    })
+})
 // UPDATE ROUTE ======================================================
 router.put('/:category/:id', isAuthenticated, (req, res) => {
     Item.findByIdAndUpdate(req.params.id, req.body, (err, foundItem) => {
@@ -128,9 +138,10 @@ router.put('/:category/:id', isAuthenticated, (req, res) => {
 })
 // DELETE ROUTE ======================================================
 router.delete('/:category/:id', isAuthenticated, (req, res) => {
-    Item.findByIdAndRemove(req.params.id, (err, itemToDelete) => {
+    Item.findByIdAndUpdate(req.params.id, {deleted: true}, (err, itemToDelete) => {
         res.redirect(`/inventory/${req.params.category}`)
     })
 })
+
 // EXPORT DATA =======================================================
 module.exports = router

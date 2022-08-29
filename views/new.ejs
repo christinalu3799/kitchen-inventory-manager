@@ -18,7 +18,13 @@
         <label for='category'>Select a Category:</label>
         <select name='category' id='category'>
             <% for(let i = 0; i < categories.length; i++) { %> 
-                <option value = <%= categories[i].category %> > <%= categories[i].title %> </option>
+                <% if (category === categories[i].category) {%> 
+                    <option value = <%= categories[i].category %> selected='selected'> <%= categories[i].title %> </option>
+                <% } else { %> 
+                    <option value = '<%= categories[i].category %>' > 
+                        <%= categories[i].title %> 
+                    </option>
+                <% } %> 
             <% } %> 
         </select>
 

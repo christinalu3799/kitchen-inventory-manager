@@ -17,7 +17,8 @@ select,
 .create-btn,
 .filter-btns button, 
 #logout-btn,
-.remove-btn {
+.remove-btn, 
+.restore-btn {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -77,6 +78,8 @@ h2 {
 #login .login-container form {
     display: flex; 
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 #register .register-container form label:focus,
 #register .register-container form input:focus,
@@ -90,8 +93,9 @@ h2 {
     border: none;
     padding: 0.5rem;
     border-radius: 3px;
-    margin: 0.5rem 0;
+    margin: 0 0 0.5rem 0;
     background-color: #ffeaab;
+    width: 80%;
 }
 /* =========================================================== */
 /*                                NAV                          */
@@ -109,7 +113,8 @@ nav {
     border-right: 12px solid rgb(244, 199, 54);
 }
 nav #logout-btn,
-#show .remove-btn {
+.remove-btn,
+.restore-btn {
     background-color: rgb(211, 211, 211);
     border:0.5px solid rgb(116, 116, 116);
     border-radius: 3px;
@@ -324,10 +329,12 @@ select {
 #restock h2 {
     text-align: left;
 }
-#restock .restock-container {
+#restock .restock-container,
+#trash .trash-container {
     display: flex;
 }
-#restock .restock-item {
+#restock .restock-item,
+#trash .deleted-item {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -339,11 +346,14 @@ select {
     margin: 0.5rem;
     filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
 }
-#restock .image {
+#restock .image, 
+#trash .image {
     width: 100%;
     height: 150px;
+    margin: 0.5rem 0;
 }
-#restock .image img {
+#restock .image img, 
+#trash .image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -372,4 +382,13 @@ th, td {
     border: 1px solid grey;
     cursor: pointer;
     font-size: 1.25rem;
+}
+/* =========================================================== */
+/*                               TRASH                         */
+/* =========================================================== */
+#trash .trash-container .deleted-item form .restore-btn {
+    margin: 1rem 0 0 0;
+}
+#trash .trash-container .deleted-item form input{
+    margin: 0;
 }

@@ -24,7 +24,7 @@ users.post('/', (req, res) => {
         } else {
             User.create(req.body, (err, createdUser) => {
             console.log(`New User Created: ${createdUser}`)
-            res.redirect('/')
+            res.redirect('/inventory')
             })
         } 
     })

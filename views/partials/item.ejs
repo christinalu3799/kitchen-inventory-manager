@@ -8,7 +8,7 @@
 <% let c = categories.find(cat => cat.category === category) %> 
 <h1><%= c.title %> </h1>
 
-<a href="/inventory/new">
+<a href="/inventory/<%= category %>/new">
     <div class="new-btn">
         <img src="/images/new-item.png">
         <p>New Item</p>
@@ -25,7 +25,13 @@
                 </div>
                 <h3>$<%= items[i].price %> </h3>
                 <p>Units: <%= items[i].units %> </p>
-                <a href="/inventory/<%= category %>/<%= items[i].id %>/edit" class="edit-btn">Edit</a>
+                <div style="display:flex; width: 100%; position: relative">
+                    <a href="/inventory/<%= category %>/<%= items[i].id %>/edit" class="edit-btn">Edit</a>
+            
+                    <form action="/inventory/<%= category %>/<%= items[i].id %>?_method=DELETE" method="POST" style="right: 0rem; position: absolute">
+                        <input type="submit" value="Remove Item" class="remove-btn">
+                    </form>  
+                </div>
             </div>
         </a> 
     <% } %> 
