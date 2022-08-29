@@ -28,7 +28,7 @@
                 <div style="display:flex; width: 100%; position: relative">
                     <a href="/inventory/<%= category %>/<%= items[i].id %>/edit" class="edit-btn">Edit</a>
             
-                    <form action="/inventory/<%= category %>/<%= items[i].id %>?_method=DELETE" method="POST" style="right: 0rem; position: absolute">
+                    <form action="/inventory/<%= category %>/<%= items[i].id %>/delete?_method=PUT" method="POST" style="right: 0rem; position: absolute">
                         <input type="submit" value="Remove Item" class="remove-btn">
                     </form>  
                 </div>

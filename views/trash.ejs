@@ -22,7 +22,7 @@
                     <form action="/inventory/trash/<%= allItems[i].id %>?_method=PUT" method="POST">
                         <input type="submit" value="Restore Item" class="restore-btn">
                     </form>
-                    <form>
+                    <form action="/inventory/delete/<%= allItems[i].id %>?_method=DELETE" method="POST">
                         <input type="submit" value="Delete Forever" class="remove-btn">
                     </form>
                 </div>

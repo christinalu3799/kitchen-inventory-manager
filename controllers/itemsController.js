@@ -71,6 +71,7 @@ router.get('/trash', (req, res) => {
         })
     })
 })
+
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
     Item.find({category: req.params.category, deleted: false}, (err, allItems) => {
@@ -137,9 +138,15 @@ router.put('/:category/:id', isAuthenticated, (req, res) => {
     })
 })
 // DELETE ROUTE ======================================================
-router.delete('/:category/:id', isAuthenticated, (req, res) => {
+router.put('/:category/:id/delete', isAuthenticated, (req, res) => {
     Item.findByIdAndUpdate(req.params.id, {deleted: true}, (err, itemToDelete) => {
         res.redirect(`/inventory/${req.params.category}`)
+    })
+})
+// DELETE FOREVER ROUTE ==============================================
+router.delete('/delete/:id', isAuthenticated, (req, res) => {
+    Item.findByIdAndRemove(req.params.id, (err, deletedItem) => {
+        res.redirect('/inventory/trash')
     })
 })
 
