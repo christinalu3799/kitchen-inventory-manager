@@ -326,6 +326,9 @@ form input:focus,
 select:focus {
     outline: none;
 }
+#new h1 {
+    margin: 2rem 0;
+}
 #new form#new-form {
     display: flex; 
     flex-direction: column;
