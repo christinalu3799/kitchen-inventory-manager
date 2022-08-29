@@ -424,3 +424,6 @@ th, td {
 #trash .trash-container .deleted-item form input{
     margin: 0;
 }
+#trash h1 {
+    margin: 2rem 0;
+}
