@@ -77,6 +77,13 @@ h2 {
     padding: 3rem;
     filter: drop-shadow(0 1px 5px rgb(189, 189, 189))
 }
+#register .register-container h1,
+#login .login-container h1{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 0 1.5rem 0;
+}
 #register .register-container form,
 #login .login-container form {
     display: flex; 
