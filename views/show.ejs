@@ -11,23 +11,25 @@
         <h1><%= item.item %></h1>
 
         <div class="show-card">
-            <h3>Price: $<%= item.price %> </h3>
-            <h3>Units: <%= item.units %> </h3>
-            <p>Quantity per Unit: <%= item.qtyPerUnit %> </p>
 
             <div class="image">
                 <img src=<%= item.imageURL %> alt=<%= item.item %>> 
             </div>
-
-            <p>Notes: <%= item.notes %> </p>
-            <p style="font-style: italic">Last Updated: <%= item.updatedAt %> </p>
-            <br>
-            <a href="/inventory/<%= category %>/<%= item.id %>/edit" class="edit-btn">Edit</a>
-
-            <!-- DELETE BUTTON -->
-            <form action="/inventory/<%= category %>/<%= item.id %>/delete?_method=PUT" method="POST">
-                <input type="submit" value="Remove Item" class="remove-btn">
-            </form>
+            <div class="right">
+                <h3>Price: $<%= item.price %> </h3>
+                <h3>Units: <%= item.units %> </h3>
+                <p>Quantity per Unit: <%= item.qtyPerUnit %> </p>
+                <br>
+                <p>Notes: <%= item.notes %> </p>
+                <br>
+                <p style="font-style: italic;font-size: smaller;">Last Updated: <%= item.updatedAt %> </p>
+                <a href="/inventory/<%= category %>/<%= item.id %>/edit" class="edit-btn">Edit</a>
+                <br>
+                <!-- DELETE BUTTON -->
+                <form action="/inventory/<%= category %>/<%= item.id %>/delete?_method=PUT" method="POST">
+                    <input type="submit" value="Remove Item" class="remove-btn">
+                </form>
+            </div>
         </div>
         
     </div>

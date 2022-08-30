@@ -126,7 +126,6 @@ nav {
     background-repeat: no-repeat;
 }
 nav #logout-btn,
-.remove-btn,
 .restore-btn {
     background-color: rgb(231, 231, 231);
     border:0.5px solid rgb(116, 116, 116);
@@ -298,20 +297,38 @@ nav #login-btn:hover {
 /* =========================================================== */
 .show-card {
     display: flex; 
-    flex-direction: column;
-    width: 70%;
-    max-width: 450px;
+    flex-direction: row;
+    width: 100%;
+    max-width: 700px;
     background-color: white;
     border-radius: 3px;
     padding: 1rem;
     filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
 }
-#show .remove-btn {
-    margin: 1rem 0;
+#show .show-card .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0.5rem;
+}
+#show h1 {
+    margin: 2rem 0 3rem 0;
+}
+#show .edit-btn {
+    position: absolute;
+    bottom: 0; 
+    right: 110px;
+    font-size: smaller;
+}
+#show .show-card .right .remove-btn {
+    position: absolute; 
+    bottom: 0; 
+    right: 0;
 }
 #show .image {
-    margin: 0.5rem 0;
-    width: 100%;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+    width: 40%;
     height: auto;
     overflow: hidden;
 }
