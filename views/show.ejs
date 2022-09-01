@@ -14,6 +14,8 @@
 
             <div class="image">
                 <img src=<%= item.imageURL %> alt=<%= item.item %>> 
+                <p><a href=<%= item.orderURL %> style="font-weight:900;color:#72520d" target="_blank">Click here to order now!</a></p>
+
             </div>
             <div class="right">
                 <h3>Price: $<%= item.price %> </h3>
@@ -22,7 +24,9 @@
                 <br>
                 <p>Notes: <%= item.notes %> </p>
                 <br>
-                <p style="font-style: italic;font-size: smaller;">Last Updated: <%= item.updatedAt %> </p>
+                <p style="font-style: italic;font-size: smaller;">Last Updated: <%= item.updatedAt %></p>
+                <!-- <p>Last Updated By: </p> -->
+                <br>
                 <a href="/inventory/<%= category %>/<%= item.id %>/edit" class="edit-btn">Edit</a>
                 <br>
                 <!-- DELETE BUTTON -->

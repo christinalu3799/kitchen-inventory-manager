@@ -32,7 +32,7 @@ h1 {
     font-family: 'Righteous', cursive;
     font-size: 3rem;
     font-weight: lighter;
-    color:rgb(114, 82, 13);
+    color:#72520d;
 }
 h2 {
     text-align: center;
@@ -293,6 +293,10 @@ nav #login-btn:hover {
     width: 100%; 
     height: 200px;
     margin: 0 0 1rem 0;
+}
+.category .index-price-and-units {
+    display: flex;
+    justify-content: space-between;
 }
 /* =========================================================== */
 /*                               SHOW                          */

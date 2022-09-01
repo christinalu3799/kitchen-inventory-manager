@@ -7,6 +7,7 @@ const itemSchema = new mongoose.Schema ({
     units: {type: Number, min: 0, required: true},
     qtyPerUnit: {type: String, required: true}, 
     imageURL: String, 
+    orderURL: String,
     notes: String, 
     deleted: {type: Boolean, default: false}
 }, {timestamps: true})

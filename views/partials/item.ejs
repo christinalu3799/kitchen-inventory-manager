@@ -23,8 +23,17 @@
                 <div class="item-img">
                     <img src=<%= items[i].imageURL %> alt=<%= items[i].item %>> 
                 </div>
-                <h3>$<%= items[i].price %> </h3>
-                <p>Units: <%= items[i].units %> </p>
+                
+                <div class="index-price-and-units">
+                    <h3>Units: <%= items[i].units %> </h3> 
+                    <h3>$<%= items[i].price %> </h3> 
+                </div>
+                
+                <!-- <br>
+                <p><a href=<%= items[i].orderURL %> style="font-weight:900;color:#72520d" target="_blank">Click to Order</a></p>  -->
+
+                <br>
+                <!-- <p style="font-size:0.8rem; font-style:italic">Last Updated: <%= items[i].updatedAt %> </p> -->
                 <div style="display:flex; width: 100%; position: relative">
                     <a href="/inventory/<%= category %>/<%= items[i].id %>/edit" class="edit-btn">Edit</a>
             

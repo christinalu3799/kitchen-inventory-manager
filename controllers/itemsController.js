@@ -23,7 +23,6 @@ const categories = [
         title: 'Non-Food',
         imageURL: 'https://cdnimg.webstaurantstore.com/uploads/seo_category/2020/6/cleaning_toolsv2.jpg'
     }
-
 ]
 // Check Authentication ==============================================
 const isAuthenticated = (req, res, next) => {
@@ -71,7 +70,6 @@ router.get('/trash', (req, res) => {
         })
     })
 })
-
 // Categories --------------------------------------------------------
 router.get('/:category', (req, res) => {
     Item.find({category: req.params.category, deleted: false}, (err, allItems) => {
@@ -79,7 +77,7 @@ router.get('/:category', (req, res) => {
             items: allItems,
             category: req.params.category, 
             categories: categories,
-            currentUser: req.session.currentUser 
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -94,6 +92,7 @@ router.get('/:category/new', isAuthenticated, (req, res) => {
 // SHOW ROUTE ========================================================
 router.get('/:category/:id', (req, res) => {
     Item.findById(req.params.id, (err, item) => {
+        
         res.render('show.ejs', {
             item: item,
             category: req.params.category,
@@ -102,7 +101,6 @@ router.get('/:category/:id', (req, res) => {
         })
     })
 })
-
 // CREATE ROUTE ======================================================
 router.post('/', isAuthenticated, (req, res) => {
     Item.create(req.body, (err, createdItem) => {
