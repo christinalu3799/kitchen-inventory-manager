@@ -1,7 +1,16 @@
 <%- include('../partials/header.ejs') %>
-<%- include('../partials/nav.ejs', {currentUser: currentUser}) %>
+
 
 <div class="main" id="login">
+    <h1>Restaurant Inventory Manager</h1>
+    <hero>
+        <div class="icons-container">
+            <img src="/images/kitchen.png">
+            <img src='/images/fork-and-spoon.png'>
+            <img src="/images/food.png">
+        </div>
+    </hero>
+
     <div class="login-container">
         <h1>Log In</h1>
         <form action="/sessions/login" method="POST">
@@ -13,6 +22,9 @@
 
             <input type="submit" value="Sign In" style="background-color: #f4c736; cursor: pointer; margin-top: 1rem">
         </form>
+
+        <p>Need to create an account?</p>
+        <a href="/" >Click here to register</a>
     </div>
 </div>
 

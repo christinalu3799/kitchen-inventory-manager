@@ -1,7 +1,16 @@
 <%- include('../partials/header.ejs') %>
-<%- include('../partials/nav.ejs') %>
 
 <div class="main" id="register">
+
+    <h1>Restaurant Inventory Manager</h1>
+    <hero>
+        <div class="icons-container">
+            <img src="/images/kitchen.png">
+            <img src='/images/fork-and-spoon.png'>
+            <img src="/images/food.png">
+        </div>
+    </hero>
+
     <div class="register-container"> 
         <h1>Create New Account</h1>
         <form action="/" method="POST">
@@ -14,7 +23,7 @@
             <input type="submit" value="Register" style="background-color: #f4c736; cursor: pointer; margin: 1rem 0"">
         </form>
         <p>Already have an account?</p>
-        <a href="/sessions/login" >Click here to sign in.</a>
+        <a href="/sessions/login" >Click here to sign in</a>
     </div>
 
 </div>

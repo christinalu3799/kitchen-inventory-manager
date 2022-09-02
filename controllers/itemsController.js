@@ -34,7 +34,7 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 // INDEX ROUTE =======================================================
-router.get('/', (req, res) => { 
+router.get('/', isAuthenticated, (req, res) => { 
     Item.find({}, (err, allItems) => {
         res.render('index.ejs', {
             items: allItems,
@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
     })
 })
 // RESTOCK ROUTE =====================================================
-router.get('/restock', (req, res) => {
+router.get('/restock', isAuthenticated, (req, res) => {
     Item.find({units: {$lt:3}, deleted: false}, (err, toRestockItems) => {
         res.render('restock.ejs', {
             toRestockItems: toRestockItems,
@@ -53,7 +53,7 @@ router.get('/restock', (req, res) => {
     })
 })
 // TABLE ROUTE =======================================================
-router.get('/table', (req, res) => {
+router.get('/table', isAuthenticated, (req, res) => {
     Item.find({deleted: false}, (err, allItems) => {
         res.render('table.ejs', {
             allItems: allItems,
@@ -62,7 +62,7 @@ router.get('/table', (req, res) => {
     })
 })
 // TRASH ROUTE =======================================================
-router.get('/trash', (req, res) => {
+router.get('/trash', isAuthenticated, (req, res) => {
     Item.find({deleted:true}, (err, allItems) => {
         res.render('trash.ejs', {
             allItems: allItems,
@@ -71,7 +71,7 @@ router.get('/trash', (req, res) => {
     })
 })
 // Categories --------------------------------------------------------
-router.get('/:category', (req, res) => {
+router.get('/:category', isAuthenticated, (req, res) => {
     Item.find({category: req.params.category, deleted: false}, (err, allItems) => {
         res.render(`${req.params.category}.ejs`, {
             items: allItems,
@@ -90,7 +90,7 @@ router.get('/:category/new', isAuthenticated, (req, res) => {
     })
 })
 // SHOW ROUTE ========================================================
-router.get('/:category/:id', (req, res) => {
+router.get('/:category/:id', isAuthenticated, (req, res) => {
     Item.findById(req.params.id, (err, item) => {
         console.log(item.item)
         res.render('show.ejs', {

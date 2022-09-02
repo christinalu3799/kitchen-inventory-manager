@@ -1,56 +1,54 @@
 <nav>
     <h1>Restaurant Inventory Manager</h1>
 
-    <hero>
+    <!-- <hero>
         <div class="icons-container">
             <img src="/images/kitchen.png">
             <img src='/images/fork-and-spoon.png'>
             <img src="/images/food.png">
         </div>
-    </hero>
+    </hero> -->
 
-    <% if (currentUser) { %> 
-        <h2>Welcome <%= currentUser.username %>! </h2>
-        <!-- Create Log Out Button -->
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out" id="logout-btn">
-        </form>
-    <% } %> 
+
+    <h2>Welcome <%= currentUser.username %>! </h2>
     
-    <a href="/inventory">
-        <div class="nav-btn">
-            <img src="/images/inventory.png">
-            <p>Home Page</p>
-        </div>
-    </a>
-    <a href="/inventory/category/new">
-        <div class="nav-btn">
-            <img src="/images/new-item.png">
-            <p>New Item</p>
-        </div>
-    </a>
-    <a href="/inventory/restock">
-        <div class="nav-btn">
-            <img src="/images/restock.png">
-            <p>Restock</p>
-        </div>
-    </a>
-    <a href="/inventory/table">
-        <div class="nav-btn">
-            <img src="/images/table-view.png">
-            <p>Table View</p>
-        </div>
-    </a>
-    
-    <a href="/inventory/trash">
-        <div class="nav-btn">
-            <img src="/images/trash.png">
-            <p>Trash</p>
-        </div>
-    </a>
-    <% if (!currentUser) { %> 
-        <a href="/" id="register-btn">Register</a>
-        <a href="/sessions/login" id="login-btn">Login</a>
-    <% } %> 
+    <div class="nav-btns">
+        <a href="/inventory">
+            <div class="nav-btn">
+                <img src="/images/inventory.png">
+                <p>Home Page</p>
+            </div>
+        </a>
+        <a href="/inventory/category/new">
+            <div class="nav-btn">
+                <img src="/images/new-item.png">
+                <p>New Item</p>
+            </div>
+        </a>
+        <a href="/inventory/restock">
+            <div class="nav-btn">
+                <img src="/images/restock.png">
+                <p>Restock</p>
+            </div>
+        </a>
+        <a href="/inventory/table">
+            <div class="nav-btn">
+                <img src="/images/table-view.png">
+                <p>Table View</p>
+            </div>
+        </a>
+        
+        <a href="/inventory/trash">
+            <div class="nav-btn">
+                <img src="/images/trash.png">
+                <p>Trash</p>
+            </div>
+        </a>
+    </div>
+    <!-- Create Log Out Button -->
+    <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log Out" id="logout-btn">
+    </form>
+
   
 </nav>

@@ -2,6 +2,11 @@
     font-family: 'Richardson';
     src: url(RichardsonScriptDEMO.otf) format('opentype');
 }
+:root {
+    --bg-color: #fffbe2;
+    --btn-color: #faf0cf;
+    --border-color-dark: #f4c736;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -51,8 +56,8 @@ h2 {
     margin: 0 0.5rem 0 0;
 }
 .main {
-    background-color: #fff9dc;
-    width: 70%;
+    background-color: var(--bg-color);
+    width: 75%;
     padding: 2rem;
     min-height: 100vh;
     border-left: 8px solid #ffeaab;
@@ -62,8 +67,15 @@ h2 {
 /* =========================================================== */
 #register, #login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    border: 25px solid #ffeaab;
+}
+#register hero,
+#login hero {
+    margin: 2rem 0;
 }
 #register .register-container,
 #login .login-container {
@@ -115,15 +127,13 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 25%;
     height: 100vh;
-    background-color: white;
-    position: fixed;
-    left: 0;
-    border-right: 12px solid rgb(244, 199, 54);
+    border-right: 12px solid var(--border-color-dark);
     background-image: url('../images/texturebg.jpg');
     background-size:cover;
     background-repeat: no-repeat;
+    padding: 2rem;
 }
 nav #logout-btn,
 .restore-btn, 
@@ -134,27 +144,37 @@ nav #logout-btn,
     cursor: pointer;
     margin: 0 0 1rem 0;
 }
+nav #logout-btn {
+    margin: 1.5rem 0;
+}
 nav h1 {
     text-align: center;
-    line-height: 1.15;
-    margin: 2rem;
+    line-height: 1.25;
+    margin: 1rem 0;
 }
-nav hero .icons-container {
+nav h2 {
+    margin-bottom: 1rem;
+}
+/* nav hero .icons-container {
     margin: 0 0 2rem 0;
 }
 nav hero .icons-container img {
     width: 3rem;
     margin: 0 1rem;
+} */
+nav .nav-btns {
+    height: fit-content;
+
 }
 nav .nav-btn {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 140px;
-    background-color: rgb(255, 228, 141);
+    background-color: var(--btn-color);
     filter: drop-shadow(0 1px 5px rgb(189, 189, 189));
     border-radius: 3px;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
     padding: 0.5rem;
     transition: transform 200ms ease-in-out;
 }
@@ -208,7 +228,7 @@ nav #login-btn:hover {
     padding: 0.5rem 1rem;
     border-radius: 3px;
     margin: 0 0.5rem;
-    background-color: #ffeaab;
+    background-color: var(--btn-color);
 }
 #index .categories {
     display: flex; 
@@ -243,6 +263,7 @@ nav #login-btn:hover {
     height: 100%;
     object-fit: cover;
 }
+
 /* =========================================================== */
 /*                             CATEGORY                        */
 /* =========================================================== */
@@ -453,4 +474,49 @@ th, td {
 }
 #trash h1 {
     margin: 2rem 0;
+}
+
+/* =========================================================== */
+/*                        MEDIA QUERIES                        */
+/* =========================================================== */
+/* Tablet */
+@media screen and (max-width:820px) {
+      body {
+        flex-direction: column;
+      }
+      nav {
+        height: 25vh;
+        width: 100%;
+        position: sticky; 
+        align-items: flex-start;
+        justify-content: space-between;
+        top: 0;
+        border-right: none;
+        border-bottom: 12px solid var(--border-color-dark);
+        z-index: 1;
+      }
+      nav h1,
+      nav h2{
+        margin: 0;
+      }
+      nav #logout-btn {
+        margin: 1rem 0 0 0;
+      }
+      nav .nav-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+  
+      }
+      .main {
+        width: 100%;
+        border: none;
+      }
+      #index {
+        justify-content: flex-start;
+      }
+}
+/* iPhone */
+@media screen and (max-width:480px) {
+    
 }
