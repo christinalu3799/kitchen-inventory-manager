@@ -92,7 +92,7 @@ router.get('/:category/new', isAuthenticated, (req, res) => {
 // SHOW ROUTE ========================================================
 router.get('/:category/:id', (req, res) => {
     Item.findById(req.params.id, (err, item) => {
-        
+        console.log(item.item)
         res.render('show.ejs', {
             item: item,
             category: req.params.category,
