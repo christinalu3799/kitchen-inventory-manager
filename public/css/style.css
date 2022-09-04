@@ -127,8 +127,10 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    left: 0;
     width: 25%;
-    height: 100vh;
+    min-height: 100vh;
     border-right: 12px solid var(--border-color-dark);
     background-image: url('../images/texturebg.jpg');
     background-size:cover;
@@ -485,7 +487,7 @@ th, td {
         flex-direction: column;
       }
       nav {
-        height: 25vh;
+        height: fit-content;
         width: 100%;
         position: sticky; 
         align-items: flex-start;
@@ -505,8 +507,11 @@ th, td {
       nav .nav-btns {
         width: 100%;
         display: flex;
-        justify-content: space-between;
-  
+        flex-wrap: wrap;
+        margin: 1.5rem 0 1rem 0;
+      }
+      nav .nav-btn {
+        margin: 0 0.25rem;
       }
       .main {
         width: 100%;
@@ -518,5 +523,42 @@ th, td {
 }
 /* iPhone */
 @media screen and (max-width:480px) {
+    .icons-container img {
+        width: 40px;
+    }
     
+    #register .register-container,
+    #login .login-container {
+        width: 300px;
+        padding: 1.5rem 0;
+    }
+    #register .register-container h1,
+    #login .login-container h1 {
+        font-size: 1.5rem;
+    }
+    #register hero, 
+    #login hero {
+        margin: 1.5rem 0;
+    }
+    #register h1,
+    #login h1 {
+        font-size: 1.75rem;
+        text-align: center;
+    }
+    nav {
+        height: fit-content;
+        position: relative;
+    }
+    nav .nav-btns {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    nav .nav-btns .nav-btn {
+        margin: 0.5rem 0;
+    }
+    .main {
+        border: 0;
+    }
 }
